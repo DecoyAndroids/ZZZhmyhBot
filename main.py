@@ -31,7 +31,7 @@ def get_user_photo(message):
     markup.add(blur, contur, detail, edge, edge_more, emboss, find_edges, sharpen, smooth, smooth_more)
     with open(src, 'wb') as new_file:
         new_file.write(downloaded_file)
-    f = open('C:/Users/Дмитрий/PycharmProjects/telegabot_a/files/'+ str(message.chat.id) +'.txt', 'w')
+    f = open('files/'+ str(message.chat.id) +'.txt', 'w')
     f.write(src)
     f.close()
     bot.send_message(message.chat.id, 'Что сделать с фоткой?',parse_mode='html', reply_markup=markup)
@@ -39,7 +39,7 @@ def get_user_photo(message):
 
 @bot.message_handler(content_types=(['text']))
 def user_photo(message):
-    f = open('C:/Users/Дмитрий/PycharmProjects/telegabot_a/files/'+ str(message.chat.id) +'.txt', 'r')
+    f = open('files/'+ str(message.chat.id) +'.txt', 'r')
     src = f.read()
     f.close()
     original = Image.open(src)
