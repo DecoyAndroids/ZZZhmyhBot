@@ -11,25 +11,6 @@ def start(message):
     bot.send_message(message.from_user.id, mass , parse_mode='html')
 
 
-@bot.message_handler(commands=['primer'])
-def primer(message):
-    photo = open('stas.jpg', 'rb')
-    markup = types.ReplyKeyboardMarkup()
-    primer = types.KeyboardButton('Отправь пример жмыха')
-    start = types.KeyboardButton('/start')
-    markup.add(primer, start)
-    bot.send_message(message.from_user.id, 'Посмотри пример жмыха:', parse_mode='html', reply_markup=markup)
-
-@bot.message_handler(commands=['primer_2'])
-def get_user_text(message):
-    if message.text =="Отправь пример жмыха":
-        photo = open('stas.jpg','rb')
-        bot.send_photo(message.chat.id, photo)
-    else:
-        bot.send_message(message.chat.id, 'Я тебя не понимаю',parse_mode='html')
-
-
-
 @bot.message_handler(content_types=(['photo']))
 def get_user_photo(message):
     bot.send_message(message.from_user.id,'Крутое фото, щас жмыхну!', parse_mode='html')
