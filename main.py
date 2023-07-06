@@ -50,8 +50,6 @@ def get_user_photo(message):
     markup.add(blur, contur, detail, edge, edge_more, emboss, find_edges, sharpen, smooth, smooth_more)
     with open(src, 'wb') as new_file:
         new_file.write(downloaded_file)
-    #original = Image.open('C:/Users/Дмитрий/PycharmProjects/telegabot_a/files/' + file_info.file_path)
-    #filtred = original.filter(ImageFilter.FIND_EDGES)
     f = open('C:/Users/Дмитрий/PycharmProjects/telegabot_a/files/'+ str(message.chat.id) +'.txt', 'w')
     f.write(src)
     f.close()
